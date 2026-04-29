@@ -150,7 +150,7 @@ ingress:
   #    hosts:
   #      - chart-example.local
 
-## @param resources
+  ## @param resources
 resources: {}
   # We usually recommend not to specify default resources and to leave this as a
   # conscious choice for the user. This also increases chances charts run on
@@ -180,7 +180,7 @@ autoscaling:
   # targetMemoryUtilizationPercentage: 80
 
 
-## @param nodeSelector
+  ## @param nodeSelector
 nodeSelector: {}
 
 ## @param tolerations

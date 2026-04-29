@@ -59,11 +59,11 @@ spec:
                   key: {{ .Values.auth.auth_secret_key }}
             {{- end }}
             - name: AUTH_REDIRECT_URI
-              value: {{ .Values.auth.redirect_uri | default "/auth" }}
+              value: {{ .Values.auth.redirect_uri }}
             - name: AUTH_SILENT_REDIRECT_URI
-              value: {{ .Values.auth.silent_redirect_uri | default "/silent-auth" }}
+              value: {{ .Values.auth.silent_redirect_uri }}
             - name: NETBIRD_TOKEN_SOURCE
-              value: {{ .Values.netbird_token_source | default "idToken" }}
+              value: {{ .Values.netbird_token_source }}
           ports:
             - name: http
               containerPort: {{ .Values.service.port }}
