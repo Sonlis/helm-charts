@@ -26,6 +26,12 @@ auth:
   ## @param auth.silent_redirect_uri
   silent_redirect_uri: /silent-auth
 
+  ## @param auth.auth_secret_name
+  auth_secret_name: ""
+
+  ## @param auth.auth_secret_key
+  auth_secret_key: ""
+
 ## @section NetBird configuration
 
 netbird:
@@ -95,8 +101,7 @@ defaultLabels: {}
 ## ref:
 ## https://kubernetes.io/docs/tasks/configure-pod-container/security-context/#set-the-security-context-for-a-pod
 ## @param podSecurityContext
-podSecurityContext: {}
-  # fsGroup: 2000
+podSecurityContext: {} # fsGroup: 2000
 
 ## Configure Container Security Context
 ## ref:
@@ -171,9 +176,9 @@ autoscaling:
 
   ## @param autoscaling.targetCPUUtilizationPercentage
   targetCPUUtilizationPercentage: 80
-
   ## @param autoscaling.targetCPUUtilizationPercentage
   # targetMemoryUtilizationPercentage: 80
+
 
 ## @param nodeSelector
 nodeSelector: {}

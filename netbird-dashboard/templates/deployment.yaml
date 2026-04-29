@@ -51,7 +51,7 @@ spec:
               value: {{ .Values.netbird.managementGrpcApiEndpoint }}
             - name: NGINX_SSL_PORT
               value: "443"
-            {{- if and .Values.auth.auth_secret_name .Values.auth.auth_secret_key }}
+            {{ if and .Values.auth.auth_secret_name .Values.auth.auth_secret_key -}}
             - name: AUTH_CLIENT_SECRET
               valueFrom:
                 secretKeyRef:
@@ -62,7 +62,8 @@ spec:
               value: {{ .Values.auth.redirect_uri | default "/auth" }}
             - name: AUTH_SILENT_REDIRECT_URI
               value: {{ .Values.auth.silent_redirect_uri | default "/silent-auth" }}
-            name: NETBIRD_TOKEN_SOURCE: {{ .Values.netbird_token_source | default "idToken" }}
+            - name: NETBIRD_TOKEN_SOURCE
+              value: {{ .Values.netbird_token_source | default "idToken" }}
           ports:
             - name: http
               containerPort: {{ .Values.service.port }}
