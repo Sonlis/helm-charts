@@ -26,12 +26,6 @@ auth:
   ## @param auth.silent_redirect_uri
   silent_redirect_uri: /silent-auth
 
-  ## @param auth.auth_secret_name
-  auth_secret_name: ""
-
-  ## @param auth.auth_secret_key
-  auth_secret_key: ""
-
 ## @section NetBird configuration
 
 netbird:
@@ -44,8 +38,9 @@ netbird:
   ## @param netbird.disableIPv6
   disableIPv6: true
 
-  ## @param netbird.token_source
-  token_source: idToken
+  ## @param netbird.token_source Which token to use to authenticate
+  ## By default, access_token is used, but for certain setup, id_token might be prefered.
+  token_source: ""
 
 ## @section Common configuration
 
@@ -150,7 +145,7 @@ ingress:
   #    hosts:
   #      - chart-example.local
 
-  ## @param resources
+## @param resources
 resources: {}
   # We usually recommend not to specify default resources and to leave this as a
   # conscious choice for the user. This also increases chances charts run on
@@ -179,8 +174,7 @@ autoscaling:
   ## @param autoscaling.targetCPUUtilizationPercentage
   # targetMemoryUtilizationPercentage: 80
 
-
-  ## @param nodeSelector
+## @param nodeSelector
 nodeSelector: {}
 
 ## @param tolerations
